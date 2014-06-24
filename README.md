@@ -8,7 +8,8 @@ Module Template
 
 All code in StreamlineJS is written in modules that take the following form:
 
-    ```JavaScript
+Example file name: js/mymodule.js
+
     define(function (require) {
       return {
         model: {
@@ -22,12 +23,48 @@ All code in StreamlineJS is written in modules that take the following form:
         }
       };
     });
-    ```
-    
+
 Each module defines a `model` JSON object, a `view` function that is commented out, and a normal `controller` function.
+
+The module can be defined all in one file, or in three seperate files like this:
+
+Example file name: js/model/mymodule.js
+
+    define(function (require) {
+      return {
+        model: {
+          ...
+        }
+      };
+    });
+
+Example file name: js/view/mymodule.js
+
+    define(function (require) {
+      return {
+        view: function () {/*
+          ...
+        */}
+      };
+    });
+
+File name: js/controller/mymodule.js
+
+    define(function (require) {
+      return {
+        controller: function () {
+          ...
+        }
+      };
+    });
+
 
 Model JSON Object
 =================
+
+StreamlineJS stores the `model` of all of the modules in one global JSON object named `json`.
+
+To access the `model` of a module in it's `view` code, you use the one global `json` object.
 
 
 View Function
