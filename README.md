@@ -8,6 +8,7 @@ Module Template
 
 All code in StreamlineJS is written in modules that take the following form:
 
+    ```JavaScript
     define(function (require) {
       return {
         model: {
@@ -21,7 +22,8 @@ All code in StreamlineJS is written in modules that take the following form:
         }
       };
     });
-
+    ```
+    
 Each module defines a `model` JSON object, a `view` function that is commented out, and a normal `controller` function.
 
 Model JSON Object
