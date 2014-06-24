@@ -64,7 +64,7 @@ Model JSON Object
 
 StreamlineJS stores the `model` of all of the modules in one global JSON object named `json`.
 
-To access the `model` of a module in it's `view` code, you use the one global `json` object.
+To access the `model` of a module in it's `view` code, you reference the one global `json` object.
 
 
 View Function
@@ -114,7 +114,23 @@ In that code snippet, these are standard HTML lines:
       ...
     </tr>
 
+New Syntax
+==========
+
 The only new syntax that StreamlineJS uses is a `< ... >` block. If a `<` is followed by a space, the code until a space followed by a `>` is treated as a JavaScript expression.
 
+This StreamlineJS code...
+
+    var name = "John Doe";
+    <td>Hello < name >!</td>
+    <a href="#">
+      < "Click Here" >
+    </a>
+    
+Will render this HTML...
+
+    <td>Hello John Doe!</td>
+    <a href="#">Click Here</a>    
+    
 
     
