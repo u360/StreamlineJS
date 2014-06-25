@@ -277,6 +277,6 @@ The `streamline` function takes four parameters: streamline(name, ext, form, div
 
 `ext` is the file extension of the back-end code. The file must reside in a folder with the same name. For example, if the back-end program is `mymodule.php`, then the file must be `php/mymodule.php`. Leave blank if there is no back-end code.
 
-`form` is the CSS class of the input fields that will be passed to the back-end code. Do not use `<form>` elements. Just add the same class to each input element that you wish to pass to the back-end code. We recommend you use class names like `something-form`.
+`form` is the CSS class of the input fields that will be passed to the back-end code. Do not use `<form>` elements. Just add the same class to each input element that you wish to pass to the back-end code using names like `something-form`.
 
 `div` is the ID of the div where you want the output HTML to be placed. We recommend you use ID names like `something-div`.
