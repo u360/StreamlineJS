@@ -1,7 +1,7 @@
 StreamlineJS.com
 ================
 
-StreamlineJS is a lightweight JavaScript framework that makes building Single Page Applications (SPAs) simple. It is designed using a Model View Controller (MVC) architecture using the Asynchronous Module Definition (AMD). It will truly streamline your app!
+StreamlineJS is a lightweight JavaScript framework that makes building Single Page Applications (SPAs) simple. It is designed using a Model-View-Controller (MVC) architecture using the Asynchronous Module Definition (AMD). It will truly streamline your app!
 
 Module Template
 ===============
@@ -167,6 +167,8 @@ Your StreamlineJS app will consist of one `index.html` HTML file and multiple Ja
         </script>
       </body>
     </html>
+
+The `index.html` file will initialize RequireJS and call `streamline` to load the main `app` module.
 
 app.js Module
 =============
