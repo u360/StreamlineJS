@@ -282,3 +282,8 @@ The `streamline` function takes four parameters: streamline(name, ext, form, div
 `form` is the CSS class of the input fields that will be passed to the back-end code. Do not use `<form>` elements. Just add the same class to each input element that you wish to pass to the back-end code using names like `something-form`.
 
 `div` is the ID of the div where you want the output HTML to be placed. We recommend you use ID names like `something-div`.
+
+License
+=======
+
+StreamlineJS is licensed under the MIT license.
