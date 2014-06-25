@@ -137,7 +137,7 @@ The `streamline` function will serialize all the inputs of the `hello-form` clas
 New Syntax
 ==========
 
-The only new syntax that StreamlineJS uses is a `< ... >` block. All code between `< space` and `space >` is treated as a JavaScript expression.
+The only new syntax that StreamlineJS uses is a `< space ... space >` block. All code between `< space` and `space >` is treated as a JavaScript expression.
 
 This StreamlineJS code...
 
