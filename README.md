@@ -10,7 +10,7 @@ Module
 
 All code in StreamlineJS is written in modules that take the following form:
 
-Example file name: js/mymodule.js
+js/mymodule.js
 
     define(function (require) {
       return {
@@ -34,7 +34,7 @@ Each module defines a `model` JSON object, a `view` function that is commented o
 
 The module can be defined all in one file, or in three seperate files like this:
 
-Example file name: js/model/mymodule.js
+js/model/mymodule.js
 
     define(function (require) {
       return {
@@ -44,7 +44,7 @@ Example file name: js/model/mymodule.js
       };
     });
 
-Example file name: js/view/mymodule.js
+js/view/mymodule.js
 
     define(function (require) {
       return {
@@ -54,7 +54,7 @@ Example file name: js/view/mymodule.js
       };
     });
 
-File name: js/controller/mymodule.js
+js/controller/mymodule.js
 
     define(function (require) {
       return {
