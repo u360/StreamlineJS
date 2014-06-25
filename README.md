@@ -123,7 +123,7 @@ Controller
 
 The `controller` function includes JavaScript that is executed after the HTML has been rendered.
 
-For example, this code registers what will happen if the user clicks on a link or button defined with the `hello-form` class.
+For example, this code registers what will happen if the user clicks on a link or button defined with the `hello-click` class.
 
     $(".hello-click").click(function () {
       streamline("world", "php", "hello-form", "main-div");
