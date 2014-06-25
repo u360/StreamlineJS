@@ -1,8 +1,8 @@
 <?php
 
-$_REQUEST["state_code"] = strtoupper( $_REQUEST["state_code"] );
+$_REQUEST["stateCode"] = strtoupper( $_REQUEST["stateCode"] );
 
-$state_name = array(
+$stateName = array(
   "AL" => "Alabama",
   "AK" => "Alaska",
   "AZ" => "Arizona",
@@ -56,12 +56,12 @@ $state_name = array(
   "WY" => "Wyoming"
 );
 
-$state_code = $_REQUEST["state_code"] ;
-if( isset( $state_name[$state_code] ) ){
-  $_REQUEST["state_name"] = $state_name[$state_code] ;
+$stateCode = $_REQUEST["stateCode"] ;
+if( isset( $stateName[$stateCode] ) ){
+  $_REQUEST["stateName"] = $stateName[$stateCode] ;
 }
 else {
-  $_REQUEST["state_name"] = "Unknown: " . $state_code ;
+  $_REQUEST["stateName"] = $stateCode ;
 }
 
 header( "Content-Type", "application/json" );
