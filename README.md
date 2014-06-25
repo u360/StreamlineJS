@@ -132,5 +132,52 @@ Will render this HTML...
     <td>Hello John Doe!</td>
     <a href="#">Click Here</a>    
     
+index.html
+==========
 
-    
+Your StreamlineJS app will consist of one `index.html` HTML file and multiple JavaScript files, one for each module of your your app. The following example also includes Bootstrap, but StreamlineJS only requires RequireJS and jQuery.
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <title>StreamlineJS</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+      </head>
+      <body>
+        <div id="body-div"></div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+        <script>
+          require.config({
+            baseUrl: "js",
+            paths: {
+              "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min",
+              "bootstrap": "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min"
+            }
+          });
+          require(["jquery", "streamline"], function ($, streamline) {
+            $(document).ready(function () {
+              streamline("app", "", "", "body-div");
+            });
+          });
+        </script>
+      </body>
+    </html>
+
+Streamline Function
+===================
+
+The `streamline` function takes four parameters: streamline(name, ext, form, div)
+
+`name` is the name of the module, excluding `.js`. The module must reside in the `baseUrl` defined in `require.config`. If the module is split into three seperate files, then append an `*` to the name. Example: "mymodule*"
+
+`ext` is the file extension of the back-end code. The file must reside in a folder with the same name. For example, if the back-end program is `mymodule.php`, then the file must be `php/mymodule.php`. Leave blank if there is no back-end code.
+
+`form` is the CSS class of the input fields that will be passed to the back-end code. Do not use `<form>` elements. Just add the same class to each input element that you wish to pass to the back-end code. We recommend you use class names like `something-form`.
+
+`div` is the ID of the div where you want the output HTML to be placed. We recommend you use ID names like `something-div`.
+
+
+
+
