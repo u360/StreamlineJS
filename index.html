@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>StreamlineJS</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+  </head>
+  <body>
+    <div id="body-div"></div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+    <script>
+      require.config({
+        baseUrl: "js",
+        paths: {
+          "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min",
+          "bootstrap": "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min"
+        }
+      });
+      require(["jquery", "streamline"], function ($, streamline) {
+        $(document).ready(function () {
+          streamline("app", "", "", "body-div");
+        });
+      });
+    </script>
+  </body>
+</html>
