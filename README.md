@@ -153,7 +153,7 @@ Will render this HTML...
 index.html
 ==========
 
-Your StreamlineJS app will consist of one `index.html` HTML file and multiple JavaScript files, one for each module of your your app. The following example also includes Bootstrap, but StreamlineJS only requires RequireJS and jQuery.
+Your StreamlineJS app will consist of one `index.html` HTML file and multiple JavaScript files, one for each module of your your app. Our demo has three modules, `app.js`, `hello.js`, and `world.js`. StreamlineJS only requires two external libraries, RequireJS and jQuery.
 
     <!DOCTYPE html>
     <html lang="en">
