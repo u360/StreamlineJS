@@ -184,8 +184,8 @@ Your StreamlineJS app will consist of one `index.html` HTML file and multiple Ja
 
 The `index.html` file will initialize RequireJS and call `streamline` to load the main `app` module.
 
-app.js Module
-=============
+app.js
+======
 
 The `app` module renders the main webpage and includes a div where the `hello` and `world` will be viewed.
 
@@ -207,8 +207,8 @@ The `app` module renders the main webpage and includes a div where the `hello` a
       };
     });
 
-hello.js Module
-===============
+hello.js
+========
 
 The `hello` module lets the user enter a two letter state code and sends that to the `world` module.
 
@@ -237,8 +237,8 @@ The `hello` module lets the user enter a two letter state code and sends that to
       };
     });
 
-world.js Module
-===============
+world.js
+========
 
 The `world` module receives a two letter state code and looks up the corresponding state name. It includes a button to return to the `hello` module so the user can enter a new state code.
 
@@ -268,8 +268,8 @@ The `world` module receives a two letter state code and looks up the correspondi
       };
     });
 
-Streamline Function
-===================
+streamline()
+============
 
 The `streamline` function takes four parameters: streamline(name, ext, form, div)
 
@@ -280,7 +280,3 @@ The `streamline` function takes four parameters: streamline(name, ext, form, div
 `form` is the CSS class of the input fields that will be passed to the back-end code. Do not use `<form>` elements. Just add the same class to each input element that you wish to pass to the back-end code. We recommend you use class names like `something-form`.
 
 `div` is the ID of the div where you want the output HTML to be placed. We recommend you use ID names like `something-div`.
-
-
-
-
