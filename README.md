@@ -12,15 +12,19 @@ Example file name: js/mymodule.js
 
     define(function (require) {
       return {
+
         model: {
           ...
         },
+
         view: function () {/*
           ...
         */},
+
         controller: function () {
           ...
         }
+
       };
     });
 
@@ -141,9 +145,7 @@ Your StreamlineJS app will consist of one `index.html` HTML file and multiple Ja
     <html lang="en">
       <head>
         <meta charset="utf-8" />
-        <title>StreamlineJS</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+        <title>StreamlineJS Demo</title>
       </head>
       <body>
         <div id="body-div"></div>
@@ -152,11 +154,12 @@ Your StreamlineJS app will consist of one `index.html` HTML file and multiple Ja
           require.config({
             baseUrl: "js",
             paths: {
-              "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min",
-              "bootstrap": "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min"
+              "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min"
             }
           });
-          require(["jquery", "streamline"], function ($, streamline) {
+          require(["jquery", "streamline"], function (jquery, streamline) {
+            window.$ = jquery;
+            window.streamline = streamline;
             $(document).ready(function () {
               streamline("app", "", "", "body-div");
             });
@@ -164,6 +167,90 @@ Your StreamlineJS app will consist of one `index.html` HTML file and multiple Ja
         </script>
       </body>
     </html>
+
+app.js Module
+=============
+
+The `app` module renders the main webpage and includes a div where the `hello` and `world` will be viewed.
+
+    define(function (require) {
+      return {
+
+        model: {
+        },
+
+        view: function () {/*
+          <h1>StreamlineJS Demo</h1>
+          <div id="main-div"></div>
+        */},
+
+        controller: function () {
+          streamline("hello", "", "", "main-div");
+        }
+
+      };
+    });
+
+hello.js Module
+===============
+
+The `hello` module lets the user enter a two letter state code and sends that to the `world` module.
+
+
+    define(function (require) {
+      return {
+
+        model: {
+          stateCode: ""
+        },
+
+        view: function () {/*
+          <p>Please enter a two letter state code
+              and we will look it up for you.</p>
+          <input class="hello-form" type="text" name="stateCode"
+              value="< json.stateCode >" />
+          <button class="hello-click">Search</button>
+        */},
+
+        controller: function () {
+          $(".hello-click").click(function () {
+            streamline("world", "php", "hello-form", "main-div");
+          });
+        }
+
+      };
+    });
+
+world.js Module
+===============
+
+The `world` module receives a two letter state code and looks up the corresponding state name. It includes a button to return to the `hello` module so the user can enter a new state code.
+
+
+    define(function (require) {
+      return {
+
+        model: {
+          stateName: ""
+        },
+
+        view: function () {/*
+          <h3>Hello < json.stateName >!</h3>
+          <p>The state name was returned by the world.php script
+              <br>which is located in the php folder.</p>
+          <p>When you click the Back button, notice that the state
+              <br>code will be prepopulated with your previous entry.</p>
+          <button class="world-click">Back</button>
+        */},
+
+        controller: function () {
+          $(".world-click").click(function () {
+            streamline("hello", "", "", "main-div");
+          });
+        }
+
+      };
+    });
 
 Streamline Function
 ===================
