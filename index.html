@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>StreamlineJS</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+    <title>StreamlineJS Demo</title>
   </head>
   <body>
     <div id="body-div"></div>
@@ -13,11 +11,12 @@
       require.config({
         baseUrl: "js",
         paths: {
-          "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min",
-          "bootstrap": "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min"
+          "jquery": "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min"
         }
       });
-      require(["jquery", "streamline"], function ($, streamline) {
+      require(["jquery", "streamline"], function (jquery, streamline) {
+        window.$ = jquery;
+        window.streamline = streamline;
         $(document).ready(function () {
           streamline("app", "", "", "body-div");
         });
