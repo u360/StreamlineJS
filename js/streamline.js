@@ -5,7 +5,6 @@
  */
 
 define(function (require) {
-  var $ = require("jquery");
   var json = {};
   return function (name, ext, form, div) {
     if (name.substr(-1) == "*") {
