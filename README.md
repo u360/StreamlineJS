@@ -3,8 +3,8 @@ StreamlineJS.com
 
 StreamlineJS is a lightweight JavaScript framework that makes building Single Page Applications (SPAs) simple. It is designed using a Model-View-Controller (MVC) architecture and the Asynchronous Module Definition (AMD). It will truly streamline your app!
 
-Module Template
-===============
+Module
+======
 
 All code in StreamlineJS is written in modules that take the following form:
 
@@ -63,16 +63,16 @@ File name: js/controller/mymodule.js
     });
 
 
-Model JSON Object
-=================
+Model
+=====
 
 StreamlineJS stores the `model` of all of the modules in one global JSON object named `json`.
 
 To access the `model` of a module in it's `view` code, you reference the one global `json` object.
 
 
-View Function
-=============
+View
+====
 
 The View code is standard HTML with standard JavaScript mixed in. There are no new commands to learn.
 
@@ -117,6 +117,20 @@ In that code snippet, these are standard HTML lines:
         <td>Hello < friend[i] >!</td>
       ...
     </tr>
+
+Controller
+==========
+
+The `controller` function includes JavaScript that is executed after the HTML has been rendered.
+
+For example, this code registers what will happen if the user clicks on a link or button defined with the `hello-form` class.
+
+    $(".hello-click").click(function () {
+      streamline("world", "php", "hello-form", "main-div");
+    });
+
+The `streamline` function will serialize all the inputs of the `hello-form` class and send them to the back-end `world.php` script. The results from the back-end script will be stored in the global `json` object. The `world.js` view will then be rendered and the resulting HTML will be placed in the `main-div` element.
+
 
 New Syntax
 ==========
