@@ -5,7 +5,6 @@
  */
 
 define(function (require) {
-  var json = {};
   return function (name, ext, form, div) {
     if (name.substr(-1) == "*") {
       name = name.substr(0, name.length - 1);
@@ -21,13 +20,13 @@ define(function (require) {
       for (var i = 1; i < max; i ++) {
         var line = lines[i].trim();
         if (html || line.substr(0, 1) == "<") {
+          if (line.substr(0, 1) != "<") {
+            line = " " + line;
+          }
           line = line.split("\\").join("\\\\");
           line = line.split("'").join("\\'");
           line = line.split("< ").join("'+");
           line = line.split(" >").join("+'");
-          if (line.substr(0, 1) != "<") {
-            line = " " + line;
-          }
           js.push("html.push('" + line + "');");
           if (line.substr(-1) != ">" || line == "<style>") {
             html = true;
@@ -52,7 +51,7 @@ define(function (require) {
           (function (js, json) {
             eval(js.join("\n"));
           })(js, json);
-          $('#' + div).html(html.join("\n"));
+          $('#' + div).html(html.join(""));
           c.controller();
         });
       }
@@ -60,7 +59,7 @@ define(function (require) {
         (function (js, json) {
           eval(js.join("\n"));
         })(js, json);
-        $('#' + div).html(html.join("\n"));
+        $('#' + div).html(html.join(""));
         c.controller();
       }
     });
