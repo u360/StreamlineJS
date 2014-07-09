@@ -42,9 +42,20 @@ define(function (require) {
       for (var key in tmp) {
        json[key] = tmp[key];
       }
-      if (ext != "" && form != "") {
-        var data = $('.' + form).serializeArray();
-        $.getJSON(ext + '/' + name + '.' + ext, data, function (obj) {
+      if (ext != "") {
+        if (form != "") {
+          var data = $('.' + form).serializeArray();
+        } else {
+          var data = {};
+        }
+        var pos = ext.indexOf(".");
+        if (pos >= 0) {
+          var file = ext.substr(pos + 1) + '/' + ext.substr(0, pos)
+              + '.' + ext.substr(pos + 1);
+        } else {
+          var file = ext + '/' + name + '.' + ext;
+        }
+        $.getJSON(file, data, function (obj) {
           for (var key in obj) {
            json[key] = obj[key];
           }
