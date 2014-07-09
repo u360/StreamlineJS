@@ -50,8 +50,7 @@ define(function (require) {
         }
         var pos = ext.indexOf(".");
         if (pos >= 0) {
-          var file = ext.substr(pos + 1) + '/' + ext.substr(0, pos)
-              + '.' + ext.substr(pos + 1);
+          var file = ext.substr(pos + 1) + '/' + ext.substr(0, pos) + '.' + ext.substr(pos + 1);
         } else {
           var file = ext + '/' + name + '.' + ext;
         }
